@@ -41,6 +41,11 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         paymentMethod: action.payload,
       };
+    case CartActionTypes.PLACE_ORDER:
+      return {
+        ...state,
+        placeOrder: action.payload,
+      };
 
     default:
       return state;
