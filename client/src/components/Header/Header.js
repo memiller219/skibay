@@ -32,7 +32,7 @@ const Header = () => {
               </LinkContainer>
               {userInfo ? (
                 <NavDropdown
-                  title={`Hi, ${userInfo.name.split(" ")[0]}`}
+                  title={`Hi ${userInfo.name.split(" ")[0]}`}
                   id="username"
                 >
                   <LinkContainer to="/profile">
