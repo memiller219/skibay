@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../components/FormContainer/FormContainer";
-import CheckoutSteps from '../components/CheckoutSteps/CheckoutSteps'
-import {saveShippingAddress} from '../redux/cart/cart.actions'
+import CheckoutSteps from "../components/CheckoutSteps/CheckoutSteps";
+import { saveShippingAddress } from "../redux/cart/cart.actions";
 
 const ShippingPage = ({ history }) => {
-
-    const cart = useSelector(state => state.cart)
-    const { shippingAddress } = cart;
-
-
+  const cart = useSelector((state) => state.cart);
+  const { shippingAddress } = cart;
 
   const [address, setAddress] = useState(shippingAddress.address);
   const [city, setCity] = useState(shippingAddress.city);
@@ -19,13 +16,11 @@ const ShippingPage = ({ history }) => {
 
   const dispatch = useDispatch();
 
- const submitHandler = (e) => {
-     e.preventDefault();
-    dispatch(saveShippingAddress({address, city, postalCode, country}))
-    history.push('/payment')
- }
-
-
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(saveShippingAddress({ address, city, postalCode, country }));
+    history.push("/payment");
+  };
 
   return (
     <FormContainer>
@@ -73,7 +68,9 @@ const ShippingPage = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" variant="primary">Continue</Button>
+        <Button type="submit" variant="primary">
+          Continue
+        </Button>
       </Form>
     </FormContainer>
   );
